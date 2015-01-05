@@ -37,8 +37,13 @@ if( slideFile.match( /\.pdf$/gi ) === null ) {
 console.log( 'Printing PDF...' );
 
 page.open( revealFile, function( status ) {
-	console.log( 'Printed succesfully' );
-	page.render( slideFile );
-	phantom.exit();
+	console.log( 'Opened succesfully' );
+    window.setTimeout(function () {
+        page.render( slideFile );
+        console.log( 'Printed succesfully' );
+        phantom.exit();
+    }, 2000);
+	console.log( 'waiting before printing' );
+	
 } );
 
